@@ -6,8 +6,8 @@ int main () {
     cout << " --- Tarik Tunai ---" << endl ;
     int jumlah ;
     cout << " \n MASUKKAN JUMLAH PENRIKAN TUNAI \n "  ;
-    cout << "          YANG ANDA INGINKAN \n";
-    cout << "     MINIMAL PENARIKAN RP 50.000 \n ";
+    cout << "      YANG ANDA INGINKAN \n";
+    cout << "  MINIMAL PENARIKAN RP 50.000 \n ";
     cout << " Rp : " ;
     cin >> jumlah ;
 
