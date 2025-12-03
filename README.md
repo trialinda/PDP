@@ -1,83 +1,149 @@
-ATM Sederhana – Program C++
+# 🏧 Simulasi Mesin ATM Sederhana
 
-Proyek ini merupakan simulasi mesin ATM sederhana menggunakan bahasa pemrograman C++. Program dibuat untuk membantu mahasiswa memahami konsep dasar seperti fungsi, kondisi, perulangan, array, serta alur transaksi pada sistem perbankan sederhana.
+<div align="center">
 
-Fitur Program
+![C++](https://img.shields.io/badge/C++-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white)
+![Status](https://img.shields.io/badge/Status-Active-success?style=for-the-badge)
+![License](https://img.shields.io/badge/License-Educational-blue?style=for-the-badge)
 
-Program ini menyediakan beberapa layanan dasar seperti ATM pada umumnya:
+*Program simulasi mesin ATM untuk pembelajaran C++*
 
-Autentikasi PIN
-Pengguna harus memasukkan PIN dengan batas maksimal tiga percobaan. Jika gagal, program akan menghentikan proses dan akun dianggap diblokir.
+</div>
 
-Cek Saldo
-Menampilkan saldo terbaru dari akun pengguna.
+---
 
-Tarik Tunai
-Pengguna dapat menarik uang dengan aturan:
+## 📋 Deskripsi
 
-Tidak boleh melebihi saldo
+Program simulasi mesin ATM sederhana yang dibuat menggunakan bahasa pemrograman C++. Program ini mensimulasikan berbagai fungsi dasar ATM seperti login, cek saldo, tarik tunai, setor tunai, transfer, dan melihat riwayat transaksi.
 
-Tidak boleh angka negatif
+## ✨ Fitur
 
-Minimal penarikan Rp 20.000
+| Fitur | Deskripsi |
+|-------|-----------|
+| 🔐 **Login dengan PIN** | Sistem autentikasi dengan 3 kali kesempatan input PIN |
+| 💰 **Cek Saldo** | Melihat saldo rekening saat ini |
+| 💵 **Tarik Tunai** | Menarik uang dengan minimal penarikan Rp 20.000 |
+| 💳 **Setor Tunai** | Menyetor uang dengan kelipatan Rp 10.000 |
+| 📤 **Transfer** | Mengirim uang ke rekening tujuan |
+| 📜 **Riwayat Transaksi** | Melihat catatan semua transaksi yang telah dilakukan |
 
-Setor Tunai
-Pengguna dapat menambah saldo dengan aturan:
+## ⚙️ Spesifikasi
 
-Tidak boleh nol atau negatif
+```
+PIN Default          : 12345
+Saldo Awal          : Rp 1.000.000
+Maks. Login         : 3 kali percobaan
+Minimal Penarikan   : Rp 20.000
+Kelipatan Setoran   : Rp 10.000
+Kapasitas Riwayat   : 100 transaksi
+```
 
-Harus kelipatan Rp 10.000
+## 🚀 Cara Menggunakan
 
-Transfer Antar Rekening
-Pengguna dapat mentransfer nominal tertentu ke nomor rekening lain selama saldo mencukupi.
+### Kompilasi Program
 
-Riwayat Transaksi
-Program menyimpan riwayat transaksi dalam array 1 dimensi, seperti:
-
-“Setor 100000”
-
-“Tarik 50000”
-
-“Transfer 20000 ke 222”
-
-Struktur dan Alur Program
-
-Program ini menggunakan beberapa fungsi agar lebih terstruktur:
-
-login() untuk autentikasi PIN
-
-menu() sebagai tampilan utama
-
-cekSaldo(), tarikTunai(), setorTunai(), transfer() sebagai fungsi transaksi
-
-tampilRiwayat() untuk menampilkan daftar transaksi
-
-Variabel penting seperti PIN, saldo, dan array untuk riwayat transaksi diletakkan sebagai variabel global untuk memudahkan akses antar fungsi.
-
-Tujuan Pembelajaran
-
-Program ini dibuat untuk memperkenalkan konsep:
-
-Penggunaan fungsi dalam C++
-
-Logika dasar perbankan pada ATM
-
-Validasi input pengguna
-
-Manipulasi angka dan string
-
-Penyimpanan riwayat transaksi menggunakan array
-
-Cara Menjalankan Program
-
-Kompilasi program dengan compiler C++, misalnya g++:
-
+```bash
 g++ atm.cpp -o atm
+```
 
+### Menjalankan Program
 
-Jalankan program:
-
+**Linux/Mac:**
+```bash
 ./atm
+```
 
+**Windows:**
+```bash
+atm.exe
+```
 
-Masukkan PIN yang telah ditentukan di dalam kode (default: 1234) untuk masuk ke menu utama.
+### Langkah Penggunaan
+
+1. ▶️ Jalankan program
+2. 🔑 Masukkan PIN (default: **12345**)
+3. 📱 Pilih menu yang diinginkan (1-6)
+4. ✅ Ikuti instruksi untuk setiap transaksi
+5. 🚪 Pilih menu 6 untuk keluar
+
+## 📂 Struktur Program
+
+```cpp
+┌─────────────────────────────────┐
+│         main()                  │
+│    Program Entry Point          │
+└──────────┬──────────────────────┘
+           │
+           ▼
+┌─────────────────────────────────┐
+│       login()                   │
+│   Autentikasi Pengguna          │
+└──────────┬──────────────────────┘
+           │
+           ▼
+┌─────────────────────────────────┐
+│     menuUtama()                 │
+│   Menu Utama Program            │
+└──────────┬──────────────────────┘
+           │
+           ├─► cekSaldo()
+           ├─► tarikTunai()
+           ├─► setorTunai()
+           ├─► transfer()
+           └─► riwayatTransaksi()
+```
+
+## 🛡️ Validasi Input
+
+- ✅ PIN harus sesuai (maksimal 3 kali percobaan)
+- ✅ Jumlah penarikan tidak boleh melebihi saldo
+- ✅ Minimal penarikan Rp 20.000
+- ✅ Setoran harus kelipatan Rp 10.000
+- ✅ Jumlah transfer tidak boleh melebihi saldo
+- ✅ Input harus berupa angka positif
+
+## 📸 Screenshot
+
+```
+======= MENU ATM =======
+1. Cek Saldo
+2. Tarik Tunai
+3. Setor Tunai
+4. Transfer
+5. Riwayat Transaksi
+6. Keluar
+Pilih menu: _
+```
+
+## ⚠️ Catatan Penting
+
+> ⚡ Program ini adalah simulasi sederhana untuk tujuan pembelajaran
+> 
+> 💾 Data tidak tersimpan secara permanen (menggunakan variabel global)
+> 
+> 🔒 PIN dan data rekening di-hardcode dalam program
+
+## 💻 Persyaratan Sistem
+
+| Komponen | Requirement |
+|----------|-------------|
+| **Compiler** | g++, MinGW, atau Visual C++ |
+| **C++ Standard** | C++11 atau lebih baru |
+| **OS** | Windows, Linux, atau macOS |
+| **RAM** | Minimal 512 MB |
+
+## 📝 Lisensi
+
+Program ini dibuat untuk tujuan **edukasi dan pembelajaran** pemrograman C++.
+
+---
+
+<div align="center">
+
+**Made with ❤️ for Learning C++**
+
+*Jika ada pertanyaan atau saran, silakan buat issue atau pull request*
+
+⭐ Star repository ini jika bermanfaat!
+
+</div>
