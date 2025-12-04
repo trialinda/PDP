@@ -6,6 +6,7 @@ string pinBenar = "12345";
 int saldo = 1000000;
 string riwayat[100];
 int jumlahTransaksi = 0;
+int rekening[3] = {111, 222, 333}; 
 
 // Fungsi login
 bool login() {
@@ -83,11 +84,25 @@ void setorTunai() {
 // Fungsi transfer
 void transfer() {
     int jumlah;
-    string noRekening;
+    int noRekening;
     
     cout << "\n=== TRANSFER ===" << endl;
     cout << "Nomor rekening tujuan: ";
     cin >> noRekening;
+
+    int idx = -1;
+    for (int i = 0; i < 3; i++) {
+        if (rekening[i] == noRekening) {
+            idx = i;
+            break;
+        }
+    }
+
+    if (idx == -1) {
+        cout << "Nomor rekening tidak ditemukan!\n";
+        return;
+    }
+
     cout << "Jumlah transfer: Rp ";
     cin >> jumlah;
     
@@ -97,7 +112,7 @@ void transfer() {
         cout << "Jumlah tidak valid!" << endl;
     } else {
         saldo -= jumlah;
-        riwayat[jumlahTransaksi] = "Transfer " + to_string(jumlah) + " ke " + noRekening;
+        riwayat[jumlahTransaksi] = "Transfer " + to_string(jumlah) + " ke " + to_string(noRekening);
         jumlahTransaksi++;
         cout << "Transfer berhasil!" << endl;
         cout << "Saldo tersisa: Rp " << saldo << endl;
@@ -134,7 +149,7 @@ void menuUtama() {
         
         switch (pilihan) {
             case 1:
-                cekSaldo();
+                cekSaldo ();
                 break;
             case 2:
                 tarikTunai();
